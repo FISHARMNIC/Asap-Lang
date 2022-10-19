@@ -1,0 +1,10 @@
+SETVAR(myArr) DIMENSION[3] (1 2 3);
+
+PROC[0](num) main(); 
+    CALL[1] put_string (LITERAL("Enter_your_name:"));
+    SETVAR(name) CALL[0] gets);
+    CALL[1] put_string (STRJOIN[2] LITERAL("Welcome") name));
+    RETURN[1] 0;
+
+PROC[2](num) sum(a b);
+    RETURN[1] MEVAL[3] a + b;

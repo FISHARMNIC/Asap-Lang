@@ -1,0 +1,22 @@
+SETVAR(VGAp) CAST(ptr:num 0xb8000);
+
+PROC[3](8:num) fmtch(char,fg,bg);
+    RETURN[1] EVAL[_] **math stuff**;
+
+PROC[1](void) putch(fmtchar);
+    SETVAR 
+        POINTER(8 VGAp) 
+        LOCAL fmtchar;
+    INC VGAp;
+    RETURN[0];
+
+PROC[1](void) putstr(string);
+    WHILE POINTER(8 string) != 0;
+        CALL[1] putch (POINTER(8 LOCAL string));
+        INC LOCAL string;
+    EXITWHILE;
+    RETURN[0];
+
+PROC[0](num) main();
+    CALL[1] putstr LITERAL "Hello";
+    RETURN[0]; 

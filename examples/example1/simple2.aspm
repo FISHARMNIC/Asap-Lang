@@ -1,0 +1,3 @@
+PROC[0](num) main(); 
+    CALL[1] put_int MEVAL("2 * 3 * (4 + 1)");
+    RETURN[1] 0;

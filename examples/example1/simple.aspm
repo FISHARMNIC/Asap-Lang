@@ -1,0 +1,5 @@
+PROC[0](num) main(); 
+    CALL[1] put_string (LITERAL("Enter your name: "));
+    SETVAR(name) CALL[0] gets;
+    CALL[1] put_string STRJOIN[2] LITERAL("Welcome ") name;
+    RETURN[1] 0;

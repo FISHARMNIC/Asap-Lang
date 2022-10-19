@@ -1,0 +1,2 @@
+- Features explicit and implicit types
+- you can handle it low level or high level

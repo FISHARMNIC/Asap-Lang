@@ -1,0 +1,54 @@
+{
+    "num": {
+        "default": "32",
+        "subtypes": {
+            "8": {
+                "bytes": 1,
+                "register": "%_l",
+                "designator": ".byte",
+                "postfix": "b",
+                "pointer": false
+            },
+            "16": {
+                "bytes": 2,
+                "register": "%_x",
+                "designator": ".2byte",
+                "postfix": "w",
+                "pointer": false
+            },
+            "32": {
+                "bytes": 4,
+                "register": "%e_x",
+                "designator": ".4byte",
+                "postfix": "w",
+                "pointer": false
+            },
+            "ptr": {
+                "bytes": 4,
+                "register": "%e_x",
+                "designator": ".4byte",
+                "postfix": "w",
+                "pointer": true
+            }
+        }
+    },
+    "str": {
+        "default": "zt",
+        "subtypes": {
+            "zt": {
+                "bytes": 0,
+                "register": "%e_x",
+                "designator": ".asciz",
+                "postfix": "w",
+                "pointer": true
+            },
+            "unterm": {
+                "bytes": 0,
+                "register": "%e_x",
+                "designator": ".ascii",
+                "postfix": "w",
+                "pointer": true
+            }
+        }
+    }
+}

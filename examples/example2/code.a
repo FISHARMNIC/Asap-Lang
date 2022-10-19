@@ -1,0 +1,24 @@
+// Explicit types and pointer handling
+// to call a pointer @(bits)ptr
+// casting works like subtype:types
+
+new VGAp = ptr:num 0xb8000.
+
+fmtch{char, fg, bg}->8:num.
+	return {16:num (8:num fg << 4 || 8:num bg) << 8 || char}.
+
+putch{fmtchar}->none proc.
+	@(8)VGAp = fmtchar.
+	VGAp++.
+	return.
+
+putstr{string}->none proc.
+	while{@(8)string != 0}.
+		putch(@(8)string).
+		string++.
+	rwhile.
+	return.
+
+main{}->num proc.
+	putstr("Hello");
+	return.

@@ -1,0 +1,20 @@
+{
+    "SETVAR": 2,
+    "CAST": 2,
+    "POINTER": 2,
+    "INC": 1,
+    "DEC": 1,
+    "MEVAL": -1,
+    "DIMENSION": -1,
+
+    "PROC": -1,
+    "RETURN": -1,
+    "LOCAL": 1,
+    "CALL": -1,
+
+    "WHILE": 3,
+    "EXITWHILE": 0,
+
+    "LITERAL": 1,
+    "STRJOIN": -1
+}
