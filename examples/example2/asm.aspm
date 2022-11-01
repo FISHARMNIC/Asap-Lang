@@ -12,7 +12,7 @@ PROC[1](void) putch(fmtchar);
 
 PROC[1](void) putstr(string);
     WHILE POINTER(8 string) != 0;
-        CALL[1] putch (POINTER(8 LOCAL string));
+        CALL[1] put_char (POINTER(8 LOCAL string));
         INC LOCAL string;
     EXITWHILE;
     RETURN[0];

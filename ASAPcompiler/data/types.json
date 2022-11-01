@@ -50,5 +50,8 @@
                 "pointer": true
             }
         }
+    },
+    "special": {
+        "pointer": "special"
     }
 }

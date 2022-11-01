@@ -253,7 +253,7 @@ getc:
 
 gets:
     _shift_stack_right_
-    mov %ebx, _gets_out_buffer_
+    lea %ebx, _gets_out_buffer_
     push %eax
         _gets_entry:
             call getc

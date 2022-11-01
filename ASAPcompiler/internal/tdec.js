@@ -1,4 +1,6 @@
 function rawtype(t) {
+    if(t[0] == "[")
+        return typesJSON.special.ptr
     if (parseInt(t) == t) {
         t = parseInt(t);
         if (t > 65535) return typesJSON.num.subtypes["32"]

@@ -29,10 +29,17 @@ function setMemory(dest, fmt, src) {
     //     `mov ${regUsed}, ${src} `,
     //     `mov${fmt.postfix} ${dest}, ${regUsed}`
     // )
+    // if(rawtype(fmt).special == "pointer") {
+    // add_text(
+    //     moveInto("b", )
+    //     `mov ${dest}, ${regUsed}`)
+
+    // } else {
     add_text(
         moveInto("b", fmt, src),
         `mov ${dest}, ${regUsed}`
     )
+    //}
 }
 
 function setMemoryBase(dest, fmt, src) {
@@ -54,4 +61,8 @@ function newAsmVar(dest, fmt, src) {
 
 function QUICKSTR(str) {
     return '"' + str + '"'
+}
+
+function READPTR(p) {
+    return `[${p}]`
 }

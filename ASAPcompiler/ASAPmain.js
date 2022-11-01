@@ -52,6 +52,7 @@ variables.strconcat = {rtype: rawtype("ptr:num"), parameters: []}
 variables.gets = {rtype: rawtype("ptr:num"), parameters : []}
 variables.put_string = {rtype: rawtype("32:num"), parameters : []}
 variables.put_int = {rtype: rawtype("32:num"), parameters : []}
+variables.put_char = {rtype: rawtype("32:num"), parameters : []}
 
 // SETVAR("VGAp", 0xb8000)
 // SETIND("VGAp", char('A'))

@@ -39,7 +39,7 @@ strconcat:
     // ret
     
     // # ------------
-    dec %ecx
+    inc %ecx
 
     strconcat_loop2:
     mov %dl, [%ebx] # copy byte
@@ -49,7 +49,7 @@ strconcat:
     cmpb [%ebx], 0
     jne strconcat_loop2
 
-    movb [%ecx], 0
+   // movb [%ecx], 0
     lea %ecx, _strconcat_o_buff_
 
     _shift_stack_left_

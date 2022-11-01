@@ -55,7 +55,7 @@ _shift_stack_left_
 call put_string
 _shift_stack_right_
 xor %ecx, %ecx
-mov %ebx, 0
+mov %ecx, 0
 push %ecx
 _shift_stack_left_
 ret

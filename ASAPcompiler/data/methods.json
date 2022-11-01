@@ -16,5 +16,6 @@
     "EXITWHILE": 0,
 
     "LITERAL": 1,
-    "STRJOIN": -1
+    "STRJOIN": -1,
+    "READPTR": 1
 }

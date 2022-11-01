@@ -1,12 +1,5 @@
-// ease of use example
-
-new myArr = [1,2,3].
-
-main{}->num proc.
-	put("Enter your name:").
-	new name = input(str).
-	put("Welcome, "<->name).
+main{} num proc.
+	put~("Enter your name:").
+	new name = input~(str).
+	put~("Welcome, "<->name).
 	return 0.
-
-sum{a, b}->num proc.
-    return {a + b}.

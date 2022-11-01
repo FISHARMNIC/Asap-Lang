@@ -23,7 +23,6 @@ function SETVAR(v, set) {
         }
         variables[v] = type
     } else {
-        //if(type.pointer)
         setMemory(v, type, set)
     }
 
@@ -81,7 +80,7 @@ function LOCAL(_name) {
 function RETURN(num, ...args) {
     for (i = 0; i < num; i++) {
         var type = fmtReg("c", variables[inFunction].rtype)
-        console.log("REJNEIWJrpfeiufj", type, type[1] == "l" || type[1] == "h")
+        //console.log("REJNEIWJrpfeiufj", type, type[1] == "l" || type[1] == "h")
         add_text(
             `xor %ecx, %ecx`,
             `mov ${type}, ${args[i]}`,
@@ -90,20 +89,21 @@ function RETURN(num, ...args) {
     add_text("_shift_stack_left_", "ret")
 }
 
+
+
 function CAST(type, value) {
 
     add_text(
         `xor %edx, %edx`,
-        
-        //`mov _cast_${type.replace(":","")}_, ${fmtReg("b", rawtype(type))}`
+        `mov ${fmtReg("d", rawtype(value))}, ${value}`,
     )
-    if(rawtype(type).pointer) {
-        add_text(
-            moveInto("d", rawtype("ptr:num"), value),
-            `mov _cast_ptrnum_, %edx`)
-        return `_cast_ptrnum_`
-    }
-    add_text(moveInto("d", rawtype(value), value))
+    // if(rawtype(type).pointer) {
+    //     add_text(
+    //         moveInto("d", rawtype("ptr:num"), value),
+    //         `mov _cast_ptrnum_, %edx`)
+    //     return `_cast_ptrnum_`
+    // }
+    // add_text(moveInto("d", rawtype(value), value))
     return (fmtReg("d", rawtype(type)))
 }
 
@@ -112,11 +112,12 @@ function STRJOIN(len, s1, s2) {
     return "%ecx"
 }
 
-function READPOINTER(fmt, ptr) {
+function POINTER(fmt, ptr) {
     add_text(
-        moveInto("b", rawtype(ptr), ptr),
-        `mov ${fmtReg("d", rawtype(fmt))}, ${fmtReg("b", rawtype(ptr))}`
+        moveInto("d", rawtype(ptr), ptr),
+        `mov ${fmtReg("b", rawtype(fmt))}, [${fmtReg("d", rawtype(ptr))}]`
     )
+    return fmtReg("b", rawtype(fmt))
 }
 
 function SETIND(dest, ptr) {
@@ -127,8 +128,8 @@ function SETIND(dest, ptr) {
     )
 }
 
-function MEVAL(par) {
-    var OUT = math2RPN(par)
+function MEVAL(ampar, ...par) {
+    var OUT = math2RPN(par.slice(0, ampar).join(" "))
     console.log(OUT)
     add_text(
         `xor %eax, %eax`)
